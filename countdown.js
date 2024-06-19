@@ -6,7 +6,7 @@ function startCountdown() {
     const seconds = parseInt(document.getElementById('secondsInput').value);
 
     if (isNaN(seconds) || seconds <= 0) {
-        alert('Please enter a valid number of seconds.');
+        alert('enter a valid number');
         return;
     }
 
@@ -14,9 +14,9 @@ function startCountdown() {
     countdown = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(countdown);
-            document.getElementById('countdown').innerHTML = 'Countdown complete!';
+            document.getElementById('countdown').innerHTML = 'complete';
         } else {
-            document.getElementById('countdown').innerHTML = `Time left: ${timeLeft} seconds`;
+            document.getElementById('countdown').innerHTML = `${timeLeft}`;
             timeLeft--;
         }
     }, 1000);
