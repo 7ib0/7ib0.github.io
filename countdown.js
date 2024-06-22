@@ -9,7 +9,7 @@ function startCountdown() {
         alert('enter a valid number');
         return;
     }
-
+    
     let timeLeft = seconds;
     countdown = setInterval(() => {
         if (timeLeft <= 0) {
