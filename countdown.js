@@ -14,7 +14,7 @@ function startCountdown() {
     countdown = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(countdown);
-            document.getElementById('countdown').innerHTML = 'complete';
+            document.getElementById('countdown').innerHTML = 'Countdown complete!';
         } else {
             document.getElementById('countdown').innerHTML = `${timeLeft}`;
             timeLeft--;
