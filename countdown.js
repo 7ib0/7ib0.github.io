@@ -7,7 +7,7 @@ function startCountdown() {
     const seconds = parseInt(document.getElementById('secondsInput').value);
 
     if (isNaN(seconds) || seconds <= 0) {
-        alert('enter a valid number');
+        alert('Enter a valid number!');
         return;
     }
     
