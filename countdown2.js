@@ -3,7 +3,7 @@ let countdown;
 
 function startCountdown() {
     clearInterval(countdown);
-    document.getElementById('countdown').innerHTML = 'Fetching results....';
+    document.getElementById('countdown').innerHTML = 'Fetching results..............';
     const seconds = parseInt(document.getElementById('secondsInput').value);
 
     if (isNaN(seconds) || seconds <= 0) {
