@@ -1,3 +1,4 @@
+// Hello!
 let countdown;
 
 function startCountdown() {
