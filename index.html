@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Redirect Button</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countdown</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+            margin: 0;
+        }
+        .cool-button {
+            background: linear-gradient(45deg, #ff6b6b, #f06595);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-family: 'Arial', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .cool-button img {
+            margin-right: 10px;
+            height: 30px;
+            width: 30px;
+        }
+        .cool-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+        .cool-button:active {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
 
-    <button onclick="window.location.href='https://7ib0.github.io/countdown'">Go to Test Page</button>
+    <button class="cool-button" onclick="window.location.href='https://7ib0.github.io/countdown'">
+        <img src="countdown.png" alt="Countdown">
+        countdown
+    </button>
 
 </body>
 </html>
