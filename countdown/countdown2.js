@@ -1,4 +1,3 @@
-// Hello!
 let countdown;
 
 function startCountdown() {
@@ -8,6 +7,7 @@ function startCountdown() {
 
     if (isNaN(seconds) || seconds <= 0) {
         alert('Enter a valid number!');
+        document.getElementById('countdown').innerHTML = 'Fetching results...';
         return;
     }
     
