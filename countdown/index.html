@@ -49,20 +49,22 @@
             color: white;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin: 5px;
         }
 
         button:hover {
             background-color: #0056b3;
         }
     </style>
+
 </head>
 <body>
     <div class="container">
         <div class="countdown" id="countdown">0</div>
         <input type="number" id="secondsInput" placeholder="Enter seconds">
         <button onclick="startCountdown()">Start Countdown</button>
+        <button onclick="resetCountdown()">Reset Countdown</button>
     </div>
-
 
     <script src="countdown2.js?v=<?php echo filemtime('countdown2.js'); ?>"></script>
 </body>
