@@ -22,3 +22,8 @@ function startCountdown() {
         }
     }, 1000);
 }
+
+function resetCountdown() {
+    cleatInterval(countdown)
+    document.getElementById('countdown').innerHTML = `${timeLeft}`;
+}
