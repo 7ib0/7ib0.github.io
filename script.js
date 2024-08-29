@@ -40,22 +40,6 @@ function startListening() {
     recognition.start();
 }
 
-// Function to process the user's message and respond
-function processMessage(message) {
-    let response = "Sorry, I didn't understand that.";
-
-    if (message.toLowerCase().includes('hello') || message.toLowerCase().includes('hi')) {
-        response = 'Hello! How can I assist you today?';
-    } else if (message.toLowerCase().includes('how are you')) {
-        response = "I'm just a bot, but I'm doing great! How about you?";
-    } else if (message.toLowerCase().includes('bye') || message.toLowerCase().includes('goodbye')) {
-        response = 'Goodbye! Have a nice day!';
-    }
-
-    addMessage('Bot: ' + response, 'bot');
-    speak(response);
-}
-
 // Function to add a message to the chat
 function addMessage(message, sender) {
     const messageElement = document.createElement('div');
@@ -72,6 +56,38 @@ function handleTextInput() {
         addMessage('User: ' + message, 'user');
         processMessage(message);
         inputElement.value = '';  // Clear the input field
+    }
+}
+
+// Function to process the user's message and get a response from the AI
+async function processMessage(message) {
+    addMessage('Bot: Thinking...', 'bot');
+
+    try {
+        const response = await fetch('https://api.openai.com/v1/completions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer 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`,  // Replace with your API key
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                model: 'text-davinci-003',
+                prompt: message,
+                max_tokens: 150,
+            }),
+        });
+
+        const data = await response.json();
+        const aiResponse = data.choices[0].text.trim();
+
+        const botMessageElement = document.querySelector('.bot:last-of-type');
+        botMessageElement.textContent = 'Bot: ' + aiResponse;
+
+        speak(aiResponse);
+    } catch (error) {
+        console.error('Error communicating with the AI:', error);
+        const botMessageElement = document.querySelector('.bot:last-of-type');
+        botMessageElement.textContent = 'Bot: Sorry, something went wrong.';
     }
 }
 
