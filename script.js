@@ -44,11 +44,11 @@ function startListening() {
 function processMessage(message) {
     let response = "Sorry, I didn't understand that.";
 
-    if (message.includes('hello') || message.includes('hi')) {
+    if (message.toLowerCase().includes('hello') || message.toLowerCase().includes('hi')) {
         response = 'Hello! How can I assist you today?';
-    } else if (message.includes('how are you')) {
+    } else if (message.toLowerCase().includes('how are you')) {
         response = "I'm just a bot, but I'm doing great! How about you?";
-    } else if (message.includes('bye') || message.includes('goodbye')) {
+    } else if (message.toLowerCase().includes('bye') || message.toLowerCase().includes('goodbye')) {
         response = 'Goodbye! Have a nice day!';
     }
 
@@ -64,5 +64,26 @@ function addMessage(message, sender) {
     document.getElementById('messages').appendChild(messageElement);
 }
 
+// Function to handle text input submission
+function handleTextInput() {
+    const inputElement = document.getElementById('user-input');
+    const message = inputElement.value.trim();
+    if (message) {
+        addMessage('User: ' + message, 'user');
+        processMessage(message);
+        inputElement.value = '';  // Clear the input field
+    }
+}
+
 // Event listener for the talk button
 document.getElementById('talk-btn').addEventListener('click', startListening);
+
+// Event listener for the send button
+document.getElementById('send-btn').addEventListener('click', handleTextInput);
+
+// Allow pressing "Enter" to send a message
+document.getElementById('user-input').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        handleTextInput();
+    }
+});
