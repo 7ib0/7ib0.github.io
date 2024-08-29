@@ -1,19 +1,40 @@
 // Function to convert text to speech
 function speak(text) {
     const utterance = new SpeechSynthesisUtterance(text);
+    utterance.onerror = function(event) {
+        console.error('SpeechSynthesisUtterance.onerror', event);
+    };
     speechSynthesis.speak(utterance);
 }
 
 // Function to listen for speech input
 function startListening() {
+    if (!('SpeechRecognition' in window) && !('webkitSpeechRecognition' in window)) {
+        alert("Your browser does not support speech recognition. Please use Chrome or Edge.");
+        return;
+    }
+
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     recognition.lang = 'en-US';
     recognition.interimResults = false;
+
+    recognition.onstart = function() {
+        console.log('Speech recognition started');
+    };
 
     recognition.onresult = function(event) {
         const transcript = event.results[0][0].transcript;
         addMessage('User: ' + transcript, 'user');
         processMessage(transcript);
+    };
+
+    recognition.onerror = function(event) {
+        console.error('SpeechRecognition.onerror', event);
+        alert('There was an error with speech recognition: ' + event.error);
+    };
+
+    recognition.onend = function() {
+        console.log('Speech recognition ended');
     };
 
     recognition.start();
