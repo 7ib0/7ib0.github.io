@@ -1,10 +1,20 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-exports.handler = async function(event, context) {
-    if (event.httpMethod === 'POST') {
-        const { message } = JSON.parse(event.body);
+export default async function handler(req, res) {
+    const corsHeaders = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
+        'Access-Control-Allow-Headers': 'Content-Type',
+    };
 
+    if (req.method === 'OPTIONS') {
+        return res.status(204).set(corsHeaders).end();
+    }
+
+    if (req.method === 'POST') {
         try {
+            const { message } = req.body;
+
             const response = await fetch('https://api.openai.com/v1/completions', {
                 method: 'POST',
                 headers: {
@@ -24,21 +34,13 @@ exports.handler = async function(event, context) {
 
             const data = await response.json();
             const aiReply = data.choices[0].text.trim();
-            return {
-                statusCode: 200,
-                body: JSON.stringify({ reply: aiReply }),
-            };
+
+            return res.status(200).set(corsHeaders).json({ reply: aiReply });
         } catch (error) {
             console.error('Error communicating with the AI:', error);
-            return {
-                statusCode: 500,
-                body: JSON.stringify({ reply: 'Sorry, something went wrong.' }),
-            };
+            return res.status(500).set(corsHeaders).json({ reply: 'Sorry, something went wrong.' });
         }
     } else {
-        return {
-            statusCode: 405,
-            body: JSON.stringify({ reply: 'Method not allowed.' }),
-        };
+        return res.status(405).set(corsHeaders).json({ reply: 'Method not allowed.' });
     }
-};
+}

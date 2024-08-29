@@ -2,7 +2,7 @@ async function processMessage(message) {
     addMessage('Bot: Thinking...', 'bot');
 
     try {
-        const response = await fetch('https://your-vercel-project.vercel.app/api/chat', {
+        const response = await fetch('https://<your-project-name>.vercel.app/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -23,3 +23,20 @@ async function processMessage(message) {
         addMessage('Bot: Sorry, something went wrong.', 'bot');
     }
 }
+
+function addMessage(message, sender) {
+    const messageElement = document.createElement('div');
+    messageElement.className = sender;
+    messageElement.textContent = message;
+    document.getElementById('messages').appendChild(messageElement);
+}
+
+document.getElementById('send-btn').addEventListener('click', () => {
+    const inputElement = document.getElementById('user-input');
+    const message = inputElement.value.trim();
+    if (message) {
+        addMessage('User: ' + message, 'user');
+        processMessage(message);
+        inputElement.value = '';  // Clear the input field
+    }
+});
