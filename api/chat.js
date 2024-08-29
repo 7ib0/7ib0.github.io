@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
         const data = await response.json();
         const aiReply = data.choices[0].text.trim();
-        res.json({ reply: aiReply });
+        res.status(200).json({ reply: aiReply });
     } catch (error) {
         console.error('Error communicating with the AI:', error);
         res.status(500).json({ reply: 'Sorry, something went wrong.' });
