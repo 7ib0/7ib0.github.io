@@ -3,47 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f0f0f0;
-            margin: 0;
-        }
-        button {
-            background: #1900ff;
-            border: none;
-            border-radius: 25px;
-            color: white;
-            padding: 15px 30px;
-            font-size: 20px;
-            font-family: 'Arial', sans-serif;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-        .cool-button image {
-            margin-right: 10px;
-            height: 30px;
-            width: 30px;
-        }
-        .cool-button:active {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+    <title>AI Bot on GitHub Pages</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <button class="cool-button" onclick="window.location.href='https://7ib0.github.io/countdown'">
-        <img src="countdown.png" alt="countdown">
-        Countdown
-    </button>
-
+    <h1>Welcome to My AI Bot</h1>
+    <div id="chat-container">
+        <div id="messages"></div>
+        <button id="talk-btn">Talk to the Bot</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
