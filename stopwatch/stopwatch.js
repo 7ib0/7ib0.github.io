@@ -4,7 +4,7 @@ let elapsedTime = 0;
 let running = false;
 
 function formatTime(time) {
-    const milliseconds = String(time % 1000).padStart(3, '0');
+    const milliseconds = String(Math.floor((time % 1000) / 10)).padStart(2, '0');
     const seconds = String(Math.floor((time / 1000) % 60)).padStart(2, '0');
     const minutes = String(Math.floor((time / (1000 * 60)) % 60)).padStart(2, '0');
     const hours = String(Math.floor(time / (1000 * 60 * 60))).padStart(2, '0');
@@ -19,7 +19,7 @@ function updateStopwatch() {
 function startStopwatch() {
     if (!running) {
         startTime = Date.now() - elapsedTime; // Adjust start time to keep elapsed time when restarting
-        stopwatchInterval = setInterval(updateStopwatch, 10); // Update every 10ms for milliseconds
+        stopwatchInterval = setInterval(updateStopwatch, 10); // Update every 10ms for accuracy
         running = true;
     }
 }
