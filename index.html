@@ -12,46 +12,51 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f8ff;
+            background: linear-gradient(to bottom right, #6a11cb, #2575fc);
             margin: 0;
+            color: #fff;
         }
 
         .container {
             text-align: center;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #333;
+            font-size: 48px;
+            margin-bottom: 40px;
+            font-weight: bold;
         }
 
-        button {
-            padding: 15px 30px;
-            font-size: 18px;
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .button {
+            padding: 15px 40px;
+            font-size: 20px;
             border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: white;
+            border-radius: 8px;
+            background-color: #fff;
+            color: #333;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Timer App</h1>
-        <button onclick="location.href='https://7ib0.github.io/stopwatch'">Stopwatch</button>
-        <button onclick="location.href='https://7ib0.github.io/countdown'">Countdown</button>
+        <h1>Welcome to Timer App</h1>
+        <div class="buttons">
+            <button class="button" onclick="location.href='https://7ib0.github.io/stopwatch'">Stopwatch</button>
+            <button class="button" onclick="location.href='https://7ib0.github.io/countdown'">Countdown</button>
+        </div>
     </div>
 </body>
 </html>
