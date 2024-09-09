@@ -2,8 +2,8 @@ const canvas = document.getElementById('drawingCanvas');
 const context = canvas.getContext('2d');
 let isDrawing = false;
 
-// Set initial stroke style
-context.strokeStyle = '#000000';
+// set stroke line
+context.strokeStyle = '#FF0000';
 context.lineWidth = 2;
 
 canvas.addEventListener('mousedown', (e) => {
