@@ -3,13 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const context = canvas.getContext('2d');
     let isDrawing = false;
 
-    // set stroke line
-    context.strokeStyle = '#FF0000';
-    context.lineWidth = 2;
+    let brushColor = document.getElementById('colorPicker').value;
+    let brushSize = document.getElementById('brushSize').value;
 
-    // Set the canvas size
-    canvas.width = 500;
-    canvas.height = 400;
+    document.getElementById('colorPicker').addEventListener('input', (e) => {
+        brushColor = e.target.value;
+    });
+
+    document.getElementById('brushSize').addEventListener('input', (e) => {
+        brushSize = e.target.value;
+    });
 
     canvas.addEventListener('mousedown', (e) => {
         isDrawing = true;
@@ -19,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     canvas.addEventListener('mousemove', (e) => {
         if (isDrawing) {
+            context.strokeStyle = brushColor;
+            context.lineWidth = brushSize;
             context.lineTo(e.offsetX, e.offsetY);
             context.stroke();
         }
@@ -32,8 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isDrawing = false;
     });
 
-    // Function to clear the canvas
-    window.clearCanvas = function() {
+    document.getElementById('clearCanvasBtn').addEventListener('click', () => {
         context.clearRect(0, 0, canvas.width, canvas.height);
-    }
+    });
 });
