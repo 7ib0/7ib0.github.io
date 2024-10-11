@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>countdown</title>
+    <title>stopwatch</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -24,20 +24,11 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .countdown {
+        .stopwatch {
             font-size: 48px;
             font-weight: bold;
             margin: 20px 0;
             color: #333;
-        }
-
-        input[type="number"] {
-            width: 200px;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
         }
 
         button {
@@ -56,16 +47,15 @@
             background-color: #0056b3;
         }
     </style>
-
 </head>
 <body>
     <div class="container">
-        <div class="countdown" id="countdown">0</div>
-        <input type="number" id="secondsInput" placeholder="Enter seconds">
-        <button onclick="startCountdown()">start Countdown</button>
-        <button onclick="resetCountdown()">reset Countdown</button>
+        <div class="stopwatch" id="stopwatch">00:00:00.00</div>
+        <button onclick="startStopwatch()">start</button>
+        <button onclick="stopStopwatch()">stop</button>
+        <button onclick="resetStopwatch()">reset</button>
     </div>
 
-    <script src="countdown2.js?v=<?php echo filemtime('countdown2.js'); ?>"></script>
+    <script src="stopwatch.js?v=<?php echo filemtime('stopwatch.js'); ?>"></script>
 </body>
 </html>

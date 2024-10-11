@@ -3,17 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Bot</title>
-    <link rel="stylesheet" href="style.css">
+    <title>home</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #1f4037, #99f2c8);
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 60px 80px; /* Increased padding */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            max-width: 800px; /* Set a max-width to ensure it doesn't get too wide */
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 30px; /* Adjusted margin for spacing */
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+            gap: 30px; /* Increased gap between buttons */
+        }
+
+        .button {
+            padding: 20px 40px;
+            font-size: 24px; /* Increased font size for better visibility */
+            border: none;
+            border-radius: 10px;
+            background: #f0f0f0;
+            color: #333;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover {
+            background: #00a86b;
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .button {
+                font-size: 18px;
+                padding: 15px 30px;
+            }
+
+            .container {
+                padding: 40px 20px; /* Adjusted padding for smaller screens */
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My AI Bot</h1>
-    <div id="chat-container">
-        <div id="messages"></div>
-        <input type="text" id="user-input" placeholder="Type your message here...">
-        <button id="send-btn">Send</button>
-        <button id="talk-btn">Talk to the Bot</button>
+    <div class="container">
+        <h1>my projects</h1>
+        <div class="buttons">
+            <button class="button" onclick="location.href='https://7ib0.github.io/stopwatch'">Stopwatch</button>
+            <button class="button" onclick="location.href='https://7ib0.github.io/countdown'">Countdown</button>
+        </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
