@@ -1,9 +1,9 @@
 let countdown;
 let timeLeft;
 
-async function startCountdown() {
+function startCountdown() {
     clearInterval(countdown);
-    document.getElementById('countdown').innerHTML = 'Fetching results...';
+    
     const seconds = parseInt(document.getElementById('secondsInput').value);
 
     if (isNaN(seconds) || seconds <= 0) {
@@ -13,6 +13,8 @@ async function startCountdown() {
     }
     
     timeLeft = seconds;
+    document.getElementById('countdown').innerHTML = `${timeLeft}`;
+    timeLeft--;
     countdown = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(countdown);
@@ -30,3 +32,4 @@ function resetCountdown() {
     document.getElementById('countdown').innerHTML = '0';
     document.getElementById('secondsInput').value = '';
 }
+    
