@@ -1,14 +1,18 @@
 let countdown;
 let timeLeft;
 
-function startCountdown() {
+async function startCountdown() {
     clearInterval(countdown);
+    document.getElementById('countdown').innerHTML = 'Fetching results.';
+    await delay(333);
+    document.getElementById('countdown').innerHTML = 'Fetching results..';
+    await delay(333);
     document.getElementById('countdown').innerHTML = 'Fetching results...';
     const seconds = parseInt(document.getElementById('secondsInput').value);
 
     if (isNaN(seconds) || seconds <= 0) {
         alert('Enter a valid number!');
-        document.getElementById('countdown').innerHTML = 'Fetching results...';
+        document.getElementById('countdown').innerHTML = '0';
         return;
     }
     
