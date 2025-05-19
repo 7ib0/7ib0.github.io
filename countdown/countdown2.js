@@ -3,10 +3,6 @@ let timeLeft;
 
 async function startCountdown() {
     clearInterval(countdown);
-    document.getElementById('countdown').innerHTML = 'Fetching results.';
-    await delay(3);
-    document.getElementById('countdown').innerHTML = 'Fetching results..';
-    await delay(3);
     document.getElementById('countdown').innerHTML = 'Fetching results...';
     const seconds = parseInt(document.getElementById('secondsInput').value);
 
